@@ -100,13 +100,13 @@ make -j
 Once this is done there should be two executables in the `DeepSDF/bin` directory, one for surface sampling and one for SDF sampling. With the binaries, the dataset can be preprocessed using `preprocess_data.py`.
 
 ### Pre-processing the Data - Dependencies install for Ubuntu 18.04
-- Make sure you have cmake
+##### - Make sure you have cmake
 ```
 cmake --version
 make --version
 ```
 
-- CLI11
+##### - CLI11
 download CLI11
 ```
 git clone https://github.com/CLIUtils/CLI11 --recursive 
@@ -122,7 +122,7 @@ make
 sudo make install
 ```
 
-- Eigen3
+##### - Eigen3
 Download Eigen3
 ```
 wget https://gitlab.com/libeigen/eigen/-/archive/3.3.9/eigen-3.3.9.tar.gz
@@ -141,7 +141,7 @@ cmake ..
 make
 sudo make install
 ```
-- Pangolin
+##### - Pangolin
 Install dependencies for pangolin, otherwise, you will get error: No openGL
 ```
 sudo apt install libgl1-mesa-dev
@@ -156,7 +156,7 @@ sudo aptitude install libgl1-mesa-dev
 ```
 Then, I choose N -> Y.
 
-Download Pangolin:
+Download Pangolin repo:
 Here, I got an error when I use
 ```
 git clone https://github.com/stevenlovegrove/Pangolin --recursive
@@ -174,7 +174,7 @@ cmake ..
 make
 sudo make install
 ```
-- Nanoflann
+##### - Nanoflann
 Download:
 ```
 git clone https://github.com/jlblancoc/nanoflann
@@ -189,7 +189,7 @@ make
 sudo make install
 ```
 
-- Compile DeepSDF
+##### - Compile DeepSDF
 cd DeepSDF-main:
 ```
 mkdir build
