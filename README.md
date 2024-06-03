@@ -99,6 +99,133 @@ make -j
 
 Once this is done there should be two executables in the `DeepSDF/bin` directory, one for surface sampling and one for SDF sampling. With the binaries, the dataset can be preprocessed using `preprocess_data.py`.
 
+### Pre-processing the Data - Dependencies install for Ubuntu 18.04
+- Make sure you have cmake
+```
+cmake --version
+make --version
+```
+
+- CLI11
+download CLI11
+```
+git clone https://github.com/CLIUtils/CLI11 --recursive 
+
+```
+Complie
+```
+cd CLI11
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+- Eigen3
+Download Eigen3
+```
+wget https://gitlab.com/libeigen/eigen/-/archive/3.3.9/eigen-3.3.9.tar.gz
+
+```
+Uzip
+```
+tar xvf eigen-3.3.9.tar.gz
+```
+Compile
+```
+cd eigen-3.3.9
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+- Pangolin
+Install dependencies for pangolin, otherwise, you will get error: No openGL
+```
+sudo apt install libgl1-mesa-dev
+sudo apt install libglew-dev
+sudo apt install libpython2.7-dev
+sudo apt install pkg-config
+```
+Here, I got errors for `sudo apt install libgl1-mesa-dev` and `sudo apt install libpython2.7-dev`.
+Instead, I use:
+```
+sudo aptitude install libgl1-mesa-dev
+```
+Then, I choose N -> Y.
+
+Download Pangolin:
+Here, I got an error when I use
+```
+git clone https://github.com/stevenlovegrove/Pangolin --recursive
+```
+Instead, I use the following code as suggested by [DerekGrant](https://github.com/facebookresearch/DeepSDF/issues/81)
+```
+git clone https://github.com/stevenlovegrove/Pangolin.git -b v0.6
+```
+Compile
+```
+cd Pangolin
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+- Nanoflann
+Download:
+```
+git clone https://github.com/jlblancoc/nanoflann
+```
+Compile:
+```
+cd nanoflann
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+- Compile DeepSDF
+cd DeepSDF-main:
+```
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+1. I got errors: "Fatal error: mpark/variant.hpp no such file"
+Solution:
+a) ref to [DeepSDF issue](https://github.com/facebookresearch/DeepSDF/issues/29 )
+b) install from github [repo](https://github.com/mpark/variant)
+Download
+```
+git submodule add https://github.com/mpark/variant.git 3rdparty/variant
+```
+Compile
+```
+cd variant
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+2. I also got error: "fatal error: nanoflann/nanoflann.hpp"
+Solution:
+```
+cd /usr/local/include/
+sudo mkdir nanoflann
+sudo mv nanoflann.hpp nanoflann/
+```
+
+All is done!
+
 #### Preprocessing with Headless Rendering 
 
 The preprocessing script requires an OpenGL context, and to acquire one it will open a (small) window for each shape using Pangolin. If Pangolin has been compiled with EGL support, you can use the "headless" rendering mode to avoid the windows stealing focus. Pangolin's headless mode can be enabled by setting the `PANGOLIN_WINDOW_URI` environment variable as follows:
