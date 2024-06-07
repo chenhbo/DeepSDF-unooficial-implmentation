@@ -236,16 +236,13 @@ Here, I also modified preprocess_data.py to avoid folder errors when using the c
 I also add the visualizeSample.py for visualization of sampled SDF.
 
 Deesdf/
-
 │
 ├── Source/
 │   ├── class-ID/
 │       └── Object1/
-            └── file.obl
-            
-        └── Object2/
             └── file.obj
-            
+        └── Object2/
+            └── file.obj 
         └── Object3/
             └── file.obj
 │
