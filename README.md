@@ -232,6 +232,11 @@ Then, run command:
 python preprocess_data.py --data_dir data --source Source/ --name Vertebrae --split examples/splits/sv2_vertebrae_train.json --skip
 ```
 
+Before run the command, you may also need the following command to avoid some errors:
+```
+export MESA_GL_VERSION_OVERRIDE=3.3
+```
+
 Here, I also modified preprocess_data.py to avoid folder errors when using the customized dataset.
 I also add an example of customized split into example/split folder and visualizeSample.py for visualization of sampled SDF.
 
