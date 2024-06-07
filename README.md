@@ -100,6 +100,7 @@ make -j
 Once this is done there should be two executables in the `DeepSDF/bin` directory, one for surface sampling and one for SDF sampling. With the binaries, the dataset can be preprocessed using `preprocess_data.py`.
 
 ### Pre-processing the Data - Dependencies install for Ubuntu 18.04
+
 ##### - Make sure you have cmake
 ```
 cmake --version
@@ -223,6 +224,31 @@ cd /usr/local/include/
 sudo mkdir nanoflann
 sudo mv nanoflann.hpp nanoflann/
 ```
+
+##### - Data Folder
+Put mesh file into Source folder and create data folder to store the sampled SDF.
+Then, run command:
+```
+python preprocess_data.py --data_dir data --source Source/ --name Vertebrae --split examples/splits/sv2_vertebrae_train.json --skip
+```
+
+Here, I also modified preprocess_data.py to avoid folder errors when using the customized dataset.
+I also add the visualizeSample.py for visualization of sampled SDF.
+
+Deesdf/
+│
+├── Source/
+│   ├── class-ID/
+│       └── Object1/
+            └── file.obj
+        └── Object2/
+            └── file.obj
+        └── Object3/
+            └── file.obj
+│
+├── data/
+│   ├── sub-dir1/
+
 
 All is done!
 
