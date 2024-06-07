@@ -233,8 +233,9 @@ python preprocess_data.py --data_dir data --source Source/ --name Vertebrae --sp
 ```
 
 Here, I also modified preprocess_data.py to avoid folder errors when using the customized dataset.
-I also add the visualizeSample.py for visualization of sampled SDF.
+I also add an example of customized split into example/split folder and visualizeSample.py for visualization of sampled SDF.
 
+```
 Deesdf/
 │
 ├── Source/
@@ -250,6 +251,7 @@ Deesdf/
 │   ├── sub-dir1/
 |
 |
+```
 
 
 All is done!
